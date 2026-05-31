@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineLive</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🎬 CineLive</div>
+
+    <nav>
+      <button class="nav-btn active" data-section="movies">Películas</button>
+      <button class="nav-btn" data-section="series">Series</button>
+      <button class="nav-btn" data-section="tv">TV en Vivo</button>
+      <button class="nav-btn" data-section="favorites">Favoritos</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Películas, series y TV en vivo</h1>
+      <p>Explora contenido, busca títulos y guarda tus favoritos.</p>
+
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Buscar película o serie..." />
+        <select id="genreFilter">
+          <option value="all">Todos los géneros</option>
+          <option value="Acción">Acción</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedia">Comedia</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Documental">Documental</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="contentGrid" class="grid"></section>
+
+    <section id="tvSection" class="tv-section hidden">
+      <h2>TV en Vivo</h2>
+
+      <div class="tv-layout">
+        <div class="player-card">
+          <video id="livePlayer" controls autoplay></video>
+          <h3 id="channelTitle">Selecciona un canal</h3>
+        </div>
+
+        <div id="channelList" class="channel-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn">×</button>
+      <img id="modalPoster" src="" alt="" />
+      <div>
+        <h2 id="modalTitle"></h2>
+        <p id="modalMeta"></p>
+        <p id="modalDescription"></p>
+        <button id="modalFavorite" class="primary-btn">Agregar a favoritos</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="app.js"></script>
+</body>
+</html>
